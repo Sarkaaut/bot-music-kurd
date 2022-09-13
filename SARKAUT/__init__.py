@@ -15,7 +15,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 from Config import Config
 BOT_USERNAME = Config.BOT_USERNAME
 
-bot = TelegramClient('R0R77', api_id=Config.API_ID, api_hash=Config.API_HASH)
+bot = TelegramClient('SARKAUT', api_id=Config.API_ID, api_hash=Config.API_HASH)
 R0R77 = bot.start(bot_token=Config.BOT_TOKEN)
 client = TelegramClient(StringSession(Config.STRING_SESSION), Config.API_ID, Config.API_HASH)
 call_py = PyTgCalls(client)
