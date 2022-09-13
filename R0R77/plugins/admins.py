@@ -10,27 +10,27 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 @R0R77.on(events.callbackquery.CallbackQuery(data="admin"))
 async def _(event):
 
-    await event.edit(ADMIN_TEXT, buttons=[[Button.inline("🔙 گه رانه وه", data="help")]])
+    await event.edit(ADMIN_TEXT, buttons=[[Button.inline("گه رانه وه 🔙", data="help")]])
 
 @R0R77.on(events.callbackquery.CallbackQuery(data="play"))
 async def _(event):
 
-    await event.edit(PLAY_TEXT, buttons=[[Button.inline("🔙 گه رانه وه", data="help")]])
+    await event.edit(PLAY_TEXT, buttons=[[Button.inline("گه رانه وه 🔙", data="help")]])
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]رفع ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]auth ?(.*)"))
 @is_admin
 async def promote(event, perm):
     if event.is_private:
-       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
+       await event.reply("ئەم فرمانە تەنها لە گروپدا بەکاردێت ❗")
        return
 
     if not perm.add_admins:
-        await event.reply("🛡️ بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت")
+        await event.reply("بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت 🛡️")
         return
     input_str = event.pattern_match.group(1)
     user = await event.get_reply_message()
     if not input_str and not user:
-        await event.reply("⚠️ ده بێت ریپله ی به کارهێنه ر بکه ی بۆ ئه وه ی به رزبکریته وه بۆ ئادمین")
+        await event.reply("ده بێت ریپله ی به کارهێنه ر بکه ی بۆ ئه وه ی به رزبکریته وه بۆ ئادمین 👥")
         return
     sed = await R0R77(GetFullUserRequest(id=user.sender_id or input_str))
     await R0R77(EditAdminRequest(event.chat_id, user.sender_id or input_str, ChatAdminRights(
@@ -42,24 +42,24 @@ async def promote(event, perm):
                     pin_messages=True), rank="Admin"))
 
     if not input_str:
-        await event.reply(f"- ✅ بە سەرکەوتوویی به رزکرایه وه [{sed.user.first_name}](tg://user?id={user.sender_id}) في {event.chat.title}!")
+        await event.reply(f"- بە سەرکەوتوویی به رزکرایه وه ✅[{sed.user.first_name}](tg://user?id={user.sender_id}) في {event.chat.title}!")
         return
 
     await event.reply(f"🖇️ بەکارهێنەرەکە بە سەرکەوتوویی به رزکراوه ته وه {input_str} in {event.chat.title}")
  
-@R0R77.on(events.NewMessage(pattern="^[!?/]تنزيل ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]unauth ?(.*)"))
 @is_admin
 async def promote(event, perm):
     if event.is_private:
-       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
+       await event.reply("ئەم فرمانە تەنها لە گروپدا بەکاردێت ❗")
        return
     if not perm.add_admins:
-        await event.reply("🛡️ بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت")
+        await event.reply("بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت 🛡️")
         return
     input_str = event.pattern_match.group(1)
     user = await event.get_reply_message()
     if not input_str and not user:
-        await event.reply("❗ پێویستە ریپله ی  ئەو بەکارهێنەرە بکه یت کە دەتەوێت دایبەزێنیت")
+        await event.reply("پێویستە ریپله ی  ئەو بەکارهێنەرە بکه یت کە دەتەوێت دایبەزێنیت 🚸")
         return
     sed = await R0R77(GetFullUserRequest(id=user.sender_id or input_str))
     await R0R77(EditAdminRequest(event.chat_id, user.sender_id or input_str, ChatAdminRights(
@@ -71,17 +71,17 @@ async def promote(event, perm):
                     pin_messages=None), rank="Not Admin"))
 
     if not input_str:
-        await event.reply(f"- ✅ بە سەرکەوتوویی دابەزێنراوە[{sed.user.first_name}](tg://user?id={user.sender_id}) له {event.chat.title}!")
+        await event.reply(f"- بە سەرکەوتوویی دابەزێنراوە ✅[{sed.user.first_name}](tg://user?id={user.sender_id}) له {event.chat.title}!")
         return
 
-    await event.reply(f"- ✅ بە سەرکەوتوویی دابەزێنراوە {input_str} in {event.chat.title}")
+    await event.reply(f"- بە سەرکەوتوویی دابەزێنراوە ✅ {input_str} in {event.chat.title}")
  
 
 @R0R77.on(events.NewMessage(pattern="^[!?/]الرابط"))
 async def invitelink(event):
 
     if event.is_private:
-       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
+       await event.reply("ئەم فرمانە تەنها لە گروپدا بەکاردێت ❗")
        return
     link = await R0R77(ExportChatInviteRequest(event.chat_id))
     await event.reply(f"گروپەکە {event.chat.title}لینک: [لێرەدا فشار بدە]({link.link})", link_preview=False)
