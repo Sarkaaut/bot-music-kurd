@@ -2,8 +2,8 @@ from telethon import events, Button
 from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import ChannelParticipantsAdmins, ChatBannedRights
-from JE313P import JE313P
-from JE313P.status import *
+from R0R77 import R0R77
+from R0R77.status import *
 
 
 CLEANER_HELP = """
@@ -41,7 +41,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 )
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]سراوه کان ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]سراوه کان ?(.*)"))
 @is_admin
 async def clean(event, perm):
     if not perm.ban_users:
@@ -91,6 +91,6 @@ async def clean(event, perm):
 
     await cleaning_zombies.edit(stats)
 
-@JE313P.on(events.callbackquery.CallbackQuery(data="zombies"))
+@R0R77.on(events.callbackquery.CallbackQuery(data="zombies"))
 async def _(event):
     await event.edit(CLEANER_HELP, buttons=[[Button.inline("گه رانه وه", data="help")]])
