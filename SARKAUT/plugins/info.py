@@ -11,13 +11,13 @@ import telethon.utils
 from telethon.tl import functions
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
-from JE313P import *
-from JE313P.status import *
+from SARKAUT import *
+from SARKAUT.status import *
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
-@JE313P.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
+@SARKAUT.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
+@SARKAUT.on(events.NewMessage(pattern="^[!?/]join ?(.*)"))
 @is_admin
 async def _(e, perm):
     chat_id = e.chat_id
@@ -37,7 +37,7 @@ async def _(e, perm):
             await e.reply(usage, parse_mode=None, link_preview=None )
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]داخل ببه ?(.*)"))
+@SARKAUT.on(events.NewMessage(pattern="^[!?/]داخل ببه ?(.*)"))
 @is_admin        
 async def _(e, perm):
     chat_id = e.chat_id
