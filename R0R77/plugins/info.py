@@ -8,13 +8,13 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 
 MISC_HELP = """
-**✘ بعض اوامر البسيطة للكشف والايدي.**
+**چەند فەرمانێکی سادە بۆ دۆزینەوە و دەست🚸**
 
-!الايدي
-بالرد على المستخدم لأظهار ايديه او ايدي المجموعة
+/id
+ریپله ی به کارهێنه ر بکه بۆ ئه وه ی ئایدیه که ی بزانیت 🆔
 
-!ايدي
-لعرض معلومات المستخدم بالرد عليه
+/info
+بۆ پیشاندانی زانیاری بەکارهێنەر بە ریپله ی💳
 """
 
 @R0R77.on(events.NewMessage(pattern="^[!?/]الايدي"))
@@ -25,8 +25,8 @@ async def id(event):
        return
 
     ID = """
-**ايدي الدردشة :** `{}`
-**ايدي المستخدم:** `{}`
+**ئایدی گرووپ🔰  :** `{}`
+** ئایدی به کارهێنه ر 🆔:** `{}`
 """
 
     msg = await event.get_reply_message()
@@ -34,21 +34,21 @@ async def id(event):
       await event.reply(ID.format(event.chat_id, event.sender_id))
       return
 
-    await event.reply(f"المستخدم {msg.sender.first_name} /n الايدي `{msg.sender_id}`.")
+    await event.reply(f"به کارهێنه ر {msg.sender.first_name} /n ئایدی `{msg.sender_id}`.")
  
 @R0R77.on(events.NewMessage(pattern="^[!?/]ايدي ?(.*)"))
 async def info(event):
 
     sed = await R0R77(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
     hn = await R0R77(GetFullUserRequest(event.sender_id))
-    text = "**معلومات المستخدم:**\n\n"
-    text += "**الاسم الاول:** {}\n"
-    text += "**الاسم الثاني:** {}\n"
-    text += "**الايدي:** `{}`\n"
-    text += "**المعرف:** @{}\n"
-    text += "**عدد الصور:** `{}`\n"
-    text += "**النبذة:** `{}`\n"
-    text += "**رابط حسابه:** [اضغط هنا](tg://user?id={})\n"
+    text = "**زانیاری بەکارهێنەر:**\n\n"
+    text += "**ناوی یه که م:** {}\n"
+    text += "**ناوی دووم:** {}\n"
+    text += "**ئایدی:** `{}`\n"
+    text += "**ناسنامه:** @{}\n"
+    text += "**ژماره ی وێنه :** `{}`\n"
+    text += "**بایو:** `{}`\n"
+    text += "**لینکی ئەکاونتەکەی :** [کلیک ئێره بکه](tg://user?id={})\n"
 
     input_str = event.pattern_match.group(1)
     if not input_str:
@@ -60,18 +60,18 @@ async def info(event):
     hu = await R0R77(GetFullUserRequest(id=input_str))
     sedd = await R0R77(P(user_id=input_str, offset=42, max_id=0, limit=80))
 
-    textn = "**معلومات المستخدم:**\n\n"
-    textn += "**الاسم الاول:** {}\n"
-    textn += "**الاسم الثاني:** {}\n"
-    textn += "**الايدي:** `{}`\n"
-    textn += "**المعرف:** @{}\n"
-    textn += "**عدد الصور:** `{}`\n"
-    textn += "**النبذة:** `{}`\n"
-    textn += "**رابط حسابه:** [اضغط هنا](tg://user?id={})\n"
+    textn = "** زانیاری بەکارهێنەر:**\n\n"
+    textn += "** ناوی یه که م:** {}\n"
+    textn += "** ناوی دووم:** {}\n"
+    textn += "**ئایدی:** `{}`\n"
+    textn += "**ناسنامه:** @{}\n"
+    textn += "** ژماره ی وێنه:** `{}`\n"
+    textn += "**بایو:** `{}`\n"
+    textn += "** لینکی ئەکاونتەکەی:** [کلیک ئێره بکه](tg://user?id={})\n"
 
     await event.reply(textn.format(ha.first_name, ha.last_name, ha.id, ha.username, sedd.count, hu.about, ha.id))
    
 
 @R0R77.on(events.callbackquery.CallbackQuery(data="misc"))
 async def _(event):
-    await event.edit(MISC_HELP, buttons=[[Button.inline("رجوع", data="help")]])
+    await event.edit(MISC_HELP, buttons=[[Button.inline("🔙گه رانه وه", data="help")]])
