@@ -8,7 +8,7 @@ import os.path
 from PIL import Image
 from yt_dlp import YoutubeDL
 from typing import Optional, Union
-from R0R77 import R0R77 as bot
+from SARKAUT import SARKAUT as bot
 LOGS = {}
 SUDO_USERS = {}
 
