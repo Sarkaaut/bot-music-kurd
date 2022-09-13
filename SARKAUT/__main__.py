@@ -3,9 +3,9 @@
 
 import glob
 from pathlib import Path
-from R0R77.utils import load_plugins
+from SARKAUT.utils import load_plugins
 import logging
-from R0R77 import R0R77
+from SARKAUT import SARKAUT
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                     level=logging.INFO)
@@ -22,4 +22,4 @@ print("تم تنصيب السورس بنجاح")
 print("قناة السورس @JMTHON")
 
 if __name__ == "__main__":
-    R0R77.run_until_disconnected()
+    SARKAUT.run_until_disconnected()
