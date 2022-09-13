@@ -17,7 +17,7 @@ MISC_HELP = """
 بۆ پیشاندانی زانیاری بەکارهێنەر بە ریپله ی💳
 """
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]الايدي"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]id"))
 async def id(event):
 
     if event.is_private:
@@ -36,7 +36,7 @@ async def id(event):
 
     await event.reply(f"به کارهێنه ر {msg.sender.first_name} /n ئایدی `{msg.sender_id}`.")
  
-@R0R77.on(events.NewMessage(pattern="^[!?/]ايدي ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]info ?(.*)"))
 async def info(event):
 
     sed = await R0R77(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
