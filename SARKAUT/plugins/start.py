@@ -1,4 +1,4 @@
-from JE313P import JE313P, BOT_USERNAME
+from SARKAUT import SARKAUT, BOT_USERNAME
 from Config import Config
 from telethon import events, Button
 
@@ -13,7 +13,7 @@ PM_START_TEXT = """
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 """
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]start$"))
+@SARKAUT.on(events.NewMessage(pattern="^[?!/]start$"))
 async def start(event):
 
     if event.is_private:
@@ -33,7 +33,7 @@ async def start(event):
 
 
 
-@JE313P.on(events.callbackquery.CallbackQuery(data="start"))
+@SARKAUT.on(events.callbackquery.CallbackQuery(data="start"))
 async def _(event):
     if event.is_private:
        await event.edit(PM_START_TEXT.format(event.sender.first_name), buttons=[
