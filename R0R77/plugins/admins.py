@@ -10,27 +10,27 @@ from telethon.tl.functions.messages import ExportChatInviteRequest
 @R0R77.on(events.callbackquery.CallbackQuery(data="admin"))
 async def _(event):
 
-    await event.edit(ADMIN_TEXT, buttons=[[Button.inline("« رجوع", data="help")]])
+    await event.edit(ADMIN_TEXT, buttons=[[Button.inline("🔙 گه رانه وه", data="help")]])
 
 @R0R77.on(events.callbackquery.CallbackQuery(data="play"))
 async def _(event):
 
-    await event.edit(PLAY_TEXT, buttons=[[Button.inline("« رجوع", data="help")]])
+    await event.edit(PLAY_TEXT, buttons=[[Button.inline("🔙 گه رانه وه", data="help")]])
 
 @R0R77.on(events.NewMessage(pattern="^[!?/]رفع ?(.*)"))
 @is_admin
 async def promote(event, perm):
     if event.is_private:
-       await event.reply("يستخدم هذا الامر فقط في المجموعات")
+       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
        return
 
     if not perm.add_admins:
-        await event.reply("يجب ان تكون لديك صلاحيات الحظر لتنفيذ هذا الامر")
+        await event.reply("🛡️ بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت")
         return
     input_str = event.pattern_match.group(1)
     user = await event.get_reply_message()
     if not input_str and not user:
-        await event.reply("يجب عليك الرد على المستخدم لرفعه ")
+        await event.reply("⚠️ ده بێت ریپله ی به کارهێنه ر بکه ی بۆ ئه وه ی به رزبکریته وه بۆ ئادمین")
         return
     sed = await R0R77(GetFullUserRequest(id=user.sender_id or input_str))
     await R0R77(EditAdminRequest(event.chat_id, user.sender_id or input_str, ChatAdminRights(
@@ -42,24 +42,24 @@ async def promote(event, perm):
                     pin_messages=True), rank="Admin"))
 
     if not input_str:
-        await event.reply(f"- تم بنجاح رفع [{sed.user.first_name}](tg://user?id={user.sender_id}) في {event.chat.title}!")
+        await event.reply(f"- ✅ بە سەرکەوتوویی به رزکرایه وه [{sed.user.first_name}](tg://user?id={user.sender_id}) في {event.chat.title}!")
         return
 
-    await event.reply(f"تم بنجاح رفع المستخدم {input_str} in {event.chat.title}")
+    await event.reply(f"🖇️ بەکارهێنەرەکە بە سەرکەوتوویی به رزکراوه ته وه {input_str} in {event.chat.title}")
  
 @R0R77.on(events.NewMessage(pattern="^[!?/]تنزيل ?(.*)"))
 @is_admin
 async def promote(event, perm):
     if event.is_private:
-       await event.reply("يستخدم هذا الامر فقط في المجموعات")
+       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
        return
     if not perm.add_admins:
-        await event.reply("يجب ان تكون لديك صلاحيات الحظر لتنفيذ هذا الامر")
+        await event.reply("🛡️ بۆ ئەنجامدانی ئەم کارە دەبێت مۆڵەتی بلۆککردنت هەبێت")
         return
     input_str = event.pattern_match.group(1)
     user = await event.get_reply_message()
     if not input_str and not user:
-        await event.reply("يجب عليك الرد على المستخدم الذي تريد تنزيله")
+        await event.reply("❗ پێویستە ریپله ی  ئەو بەکارهێنەرە بکه یت کە دەتەوێت دایبەزێنیت")
         return
     sed = await R0R77(GetFullUserRequest(id=user.sender_id or input_str))
     await R0R77(EditAdminRequest(event.chat_id, user.sender_id or input_str, ChatAdminRights(
@@ -71,56 +71,56 @@ async def promote(event, perm):
                     pin_messages=None), rank="Not Admin"))
 
     if not input_str:
-        await event.reply(f"- تم بنجاح تنزيل[{sed.user.first_name}](tg://user?id={user.sender_id}) في {event.chat.title}!")
+        await event.reply(f"- ✅ بە سەرکەوتوویی دابەزێنراوە[{sed.user.first_name}](tg://user?id={user.sender_id}) له {event.chat.title}!")
         return
 
-    await event.reply(f"- تم بنجاح تنزيل {input_str} in {event.chat.title}")
+    await event.reply(f"- ✅ بە سەرکەوتوویی دابەزێنراوە {input_str} in {event.chat.title}")
  
 
 @R0R77.on(events.NewMessage(pattern="^[!?/]الرابط"))
 async def invitelink(event):
 
     if event.is_private:
-       await event.reply("يستخدم هذا الامر فقط في المجموعات !")
+       await event.reply("❗ ئەم فرمانە تەنها لە گروپدا بەکاردێت")
        return
     link = await R0R77(ExportChatInviteRequest(event.chat_id))
-    await event.reply(f"المجموعة {event.chat.title}الرابط: [اضغط هنا]({link.link})", link_preview=False)
+    await event.reply(f"گروپەکە {event.chat.title}لینک: [لێرەدا فشار بدە]({link.link})", link_preview=False)
 
 ADMIN_TEXT = """
-**✘ جميع اوامر الادمن تحتاج الى ان تكون مشرف**
+**هەموو فەرمانەکانی ئەدمین پێویستە ئەدمین بن 🔰**
 
 !رفع
-( لرفع المستخدم مشرف )
+( بۆ بەرزکردنەوەی ئەدمینی بەکارهێنەر 🚹 )
 
 !تنزيل
-( لتنزيل المستخدم من رتبة الاشراف بالرد عليه )
+( بۆ دابەزاندنی بەکارهێنەر لە پلەی سەرپەرشتیکردن بە ریپله بۆی 🚸 )
 
 !الرابط
-لجلب رابط المجموعه فقط ارسل الامر
+بۆ هێنانی لینکی گروپەکە تەنها فرمانەکە بنێرە ✅
 
 !انهاء
-لأنهاء التشغيل في المكالمه
+بۆ کۆتایی هێنان بە کارەکە لە پەیوەندییەکەدا 📴
 
 !تخطي
-لتخطي التشغيل الحالي
+بۆ ئەوەی پەخشکردنی ئێستا بەجێبهێڵیت 🔃
 
 !ايقاف
-لايقاف التشغيل مؤقتا
+بۆ وەستاندنی پەخشکردن ⚠️
 
 !استئناف
-لاستئناف التشغيل في المكالمه
+بۆ دەستپێکردنەوەی پەخشکردن لە پەیوەندییەکدا ♻️
 
 !مغادرة
-لمغادرة المجموعة بشكل اجباري
+ناچار بە جێهێشتنی گروپەکە ‼️
 
 !التشغيل
-لعرض قائمى التشغيل الحالية في المجموعة
+پلەی لیستەکانی ئێستا لە کۆمەڵەکەدا پیشان دەدات 🎵
 """
 
 PLAY_TEXT = """
-**✘ اوامر المستخدمين العاديين!**
+**فرمانەکان بۆ بەکارهێنەرانی ئاسایی**
 
 !تشغيل
-لتشغيل المقطع الصوتي في المكالمه اكتب الامر 
+بۆ پەخشکردنی کلیپی دەنگی لە پەیوەندییەکەدا، فرمانەکە بنووسە ✍️
 
 """
