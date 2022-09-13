@@ -8,7 +8,7 @@ btn =[
     [Button.inline("🔒 قوفڵ", data="locks"), Button.inline("🔍 زیاتر", data="misc")],
     [Button.inline("↩️ سەرەکی", data="start")]]
 
-HELP_TEXT = "🔰 بەخێربێن بۆ لیستی فەرمانەکانی سەرچاوەی Telethon\n\nلە خوارەوە دوگمەکان داگرە:"
+HELP_TEXT = "🔰 بەخێربێن بۆ لیستی فەرمانەکانی سەرچاوەی Telethon \n\nلە خوارەوە دوگمەکان داگرە:"
 
 
 @R0R77.on(events.NewMessage(pattern="[!?/]help"))
