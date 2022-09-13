@@ -2,13 +2,13 @@ from telethon import events, Button
 from R0R77 import R0R77, BOT_USERNAME
 
 btn =[
-    [Button.inline("👥 بەڕێوەبەر", data="admin"),],
-    [Button.inline("📝 دامەزراندن", data="pins"), Button.inline("⚠️ پاکردنەوە", data="purges")],
-    [Button.inline("♻️ ئیش پی کردن", data="play"), Button.inline("🚷 سراوه کان", data="zombies")],
-    [Button.inline("🔒 قوفڵ", data="locks"), Button.inline("🔍 زیاتر", data="misc")],
+    [Button.inline("بەڕێوەبەر 👥", data="admin"),],
+    [Button.inline("دامەزراندن 📝", data="pins"), Button.inline("⚠️ پاکردنەوە", data="purges")],
+    [Button.inline("ئیش پی کردن ♻️", data="play"), Button.inline("🚷 سراوه کان", data="zombies")],
+    [Button.inline("قوفڵ 🔒", data="locks"), Button.inline("🔍 زیاتر", data="misc")],
     [Button.inline("↩️ سەرەکی", data="start")]]
 
-HELP_TEXT = "🔰 بەخێربێن بۆ لیستی فەرمانەکانی سەرچاوەی Telethon \n\nلە خوارەوە دوگمەکان داگرە:"
+HELP_TEXT = "بەخێربێن بۆ لیستی فەرمانەکانی سەرچاوەی Telethon 🔰 \n\nلە خوارەوە دوگمەکان داگرە:"
 
 
 @R0R77.on(events.NewMessage(pattern="[!?/]help"))
@@ -16,7 +16,7 @@ async def help(event):
 
     if event.is_group:
        await event.reply("بۆ بینینی فرمانەکان کلیک لە خوارەوە بکە", buttons=[
-       [Button.url("👨‍🔧 لێرەدا فشار بدە", "t.me/{}?start=help".format(BOT_USERNAME))]])
+       [Button.url("لێرەدا فشار بدە 👨‍🔧", "t.me/{}?start=help".format(BOT_USERNAME))]])
        return
 
     await event.reply(HELP_TEXT, buttons=btn)
