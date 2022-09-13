@@ -2,21 +2,21 @@ from telethon import events, Button
 from R0R77 import R0R77, BOT_USERNAME
 
 btn =[
-    [Button.inline("الادمن", data="admin"),],
-    [Button.inline("التثبيت", data="pins"), Button.inline("التنظيف", data="purges")],
-    [Button.inline("التشغيل", data="play"), Button.inline("المحذوفين", data="zombies")],
-    [Button.inline("القفل", data="locks"), Button.inline("اخرى", data="misc")],
-    [Button.inline("الئيسية", data="start")]]
+    [Button.inline("👥 بەڕێوەبەر", data="admin"),],
+    [Button.inline("📝 دامەزراندن", data="pins"), Button.inline("⚠️ پاکردنەوە", data="purges")],
+    [Button.inline("♻️ ئیش پی کردن", data="play"), Button.inline("🚷 سراوه کان", data="zombies")],
+    [Button.inline("🔒 قوفڵ", data="locks"), Button.inline("🔍 زیاتر", data="misc")],
+    [Button.inline("↩️ سەرەکی", data="start")]]
 
-HELP_TEXT = "اهلا بك في قائمة اوامر سورس جمثون\n\nاضغط على الازرار من الاسفل:"
+HELP_TEXT = "🔰 بەخێربێن بۆ لیستی فەرمانەکانی سەرچاوەی Telethon\n\nلە خوارەوە دوگمەکان داگرە:"
 
 
-@R0R77.on(events.NewMessage(pattern="[!?/]الاوامر"))
+@R0R77.on(events.NewMessage(pattern="[!?/]help"))
 async def help(event):
 
     if event.is_group:
-       await event.reply("اضغط على الاسفل لعرض الاوامر", buttons=[
-       [Button.url("اضغط هنا", "t.me/{}?start=help".format(BOT_USERNAME))]])
+       await event.reply("بۆ بینینی فرمانەکان کلیک لە خوارەوە بکە", buttons=[
+       [Button.url("👨‍🔧 لێرەدا فشار بدە", "t.me/{}?start=help".format(BOT_USERNAME))]])
        return
 
     await event.reply(HELP_TEXT, buttons=btn)
