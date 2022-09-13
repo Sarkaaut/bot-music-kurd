@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: sudo apt update && sudo apt install git curl python3-pip ffmpeg -y && python3 -m R0R77
+          command: sudo apt update && sudo apt install git curl python3-pip ffmpeg -y && python3 -m SARKAUT
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
