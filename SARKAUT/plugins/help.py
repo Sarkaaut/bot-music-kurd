@@ -1,5 +1,5 @@
 from telethon import events, Button
-from JE313P import JE313P, BOT_USERNAME
+from SARKAUT import SARKAUT, BOT_USERNAME
 
 btn =[
     [Button.inline("بەڕێوەبەر", data="admin"),],
@@ -11,7 +11,7 @@ btn =[
 HELP_TEXT = "بەخێربێن بۆ لیستی فەرمانەکانی Telethon سەرچاوە\n\nکلیک لە دوگمەکانی خوارەوە بکە:"
 
 
-@JE313P.on(events.NewMessage(pattern="[!?/]help"))
+@SARKAUT.on(events.NewMessage(pattern="[!?/]help"))
 async def help(event):
 
     if event.is_group:
@@ -21,12 +21,12 @@ async def help(event):
 
     await event.reply(HELP_TEXT, buttons=btn)
 
-@JE313P.on(events.NewMessage(pattern="^/start help"))
+@SARKAUT.on(events.NewMessage(pattern="^/start help"))
 async def _(event):
 
     await event.reply(HELP_TEXT, buttons=btn)
 
-@JE313P.on(events.callbackquery.CallbackQuery(data="help"))
+@SARKAUT.on(events.callbackquery.CallbackQuery(data="help"))
 async def _(event):
 
      await event.edit(HELP_TEXT, buttons=btn)
