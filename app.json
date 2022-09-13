@@ -6,31 +6,31 @@
   "stack": "container",
     "env": {
         "STRING_SESSION": {
-            "description": "يرجى وضع كود سيشن تيليثون للحساب المساعد هنا ",
+            "description": "کۆدی تیرموکسی ئاکاونتی یارمه تیده ر بنوسه",
             "required": true
         },
         "HEROKU_MODE": {
-            "description": "لا تغير هذه نهائيا",
+            "description": "ده ستکاری مه که",
             "required": true,
             "value": "ENABLE"
         },
         "SUPPORT": {
-            "description": "ضع هنا معرف مجموعتك او قناتك بدون @",
+            "description": "@ لینکی گرووپت بنوسه به بێ ",
             "required": false,
-            "value": "JMTHON"
+            "value": "Grup_Shetakann"
         },
         "CHANNEL": {
-            "description": "ضع معرف قناتك اذا اردت غير ذلك اتركها ",
+            "description": "@ لینکی که ناڵت بنوسه به بێ",
             "required": false,
-            "value": "JMTHON"
+            "value": "Trpay_dllm"
         },
         "BOT_USERNAME": {
-            "description": "هنا ضع معرف البوت بدون @",
+            "description": "@ یوزه ری بۆتت بنوسه به بێ",
             "required": false,
             "value": ""
         },
         "BOT_TOKEN": {
-            "description": "هنا ضع توكن بوتك",
+            "description": "توکن بۆتت بنوسه",
             "required": true,
             "value": ""
         }
