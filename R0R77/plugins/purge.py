@@ -1,6 +1,6 @@
 from telethon import events, Button
-from JE313P import JE313P
-from JE313P.status import *
+from R0R77 import R0R77
+from R0R77.status import *
 import time
 
 PR_HELP = """
@@ -15,7 +15,7 @@ PR_HELP = """
 
 """
 
-@JE313P.on(events.NewMessage(pattern=r"^[?!]باکردنه وه"))
+@R0R77.on(events.NewMessage(pattern=r"^[?!]باکردنه وه"))
 @is_admin
 async def purge_messages(event, perm):
     if not perm.delete_messages:
@@ -45,7 +45,7 @@ async def purge_messages(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]سرینه وه$"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]سرینه وه$"))
 @is_admin
 async def delete_messages(event, perm):
     if not perm.delete_messages:
@@ -59,6 +59,6 @@ async def delete_messages(event, perm):
     await msg.delete()
     await event.delete()
 
-@JE313P.on(events.callbackquery.CallbackQuery(data="purges"))
+@R0R77.on(events.callbackquery.CallbackQuery(data="purges"))
 async def _(event):
     await event.edit(PR_HELP, buttons=[[Button.inline("گه رانه وه", data="help")]])
