@@ -21,7 +21,7 @@ MISC_HELP = """
 async def id(event):
 
     if event.is_private:
-       await event.reply(f"الايدي الخاص بك هو`{event.sender_id}`.")
+       await event.reply(f"ئایدی به رێزت`{event.sender_id}`.")
        return
 
     ID = """
