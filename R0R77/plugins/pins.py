@@ -6,23 +6,23 @@ from R0R77 import *
 
 
 PINS_TEXT = """
-**🔰فەرمانەکانی دامەزراندن و لابردنی نامەکان لە گروپەکەدا**
+**فەرمانەکانی دامەزراندن و لابردنی نامەکان لە گروپەکەدا🔰**
 
 /Installations
-🖇️ریپله ی ئەو نامەیە بکه کە دەتەوێت دایبمەزرێنیت
+ریپله ی ئەو نامەیە بکه کە دەتەوێت دایبمەزرێنیت🖇️
 
 /uninstall
-📨ریپله ی ئەو نامانەی کە دەتەوێت پینیان لێ بکەیتەوە
+ریپله ی ئەو نامانەی کە دەتەوێت پینیان لێ بکەیتەوە📨
 
-/Uninstall for all
-📭بۆ لابردنی هەموو نامە پین کراوه کانی ناو گروپەکە
+/Uninstallforall
+بۆ لابردنی هەموو نامە پین کراوه کانی ناو گروپەکە📭
 
-/Pinned messages
-📮بۆ پیشاندانی نامە پین کراوەکان لە گروپەکەدا
+/Pinned
+بۆ پیشاندانی نامە پین کراوەکان لە گروپەکەدا📮
 
 """
 
-@R0R77.on(events.NewMessage(pattern="^[?!/]Pinned messages"))
+@R0R77.on(events.NewMessage(pattern="^[?!/]Pinned"))
 async def get_pinned(event):
     chat_id = (str(event.chat_id)).replace("-100", "")
 
@@ -58,7 +58,7 @@ async def unpin(event, perm):
     await event.reply(f"دامەزراندنەکە بە سەرکەوتوویی هەڵوەشایەوە✅ [بۆ ئەم پەیامە](t.me/{event.chat.username}/{ok.id}).", link_preview=False)
 
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]Uninstall for all$"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]Uninstallforall$"))
 async def unpinall(event, perm):
     if not perm.pin_messages:
        await event.reply("پێویستە سەرەتا مۆڵەتی دامەزراندنت هەبێت🔰")
