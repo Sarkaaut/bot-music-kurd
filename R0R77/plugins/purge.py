@@ -4,27 +4,27 @@ from R0R77.status import *
 import time
 
 PR_HELP = """
-**✘ هذه هي قائمة اوامر التنظيف الحاصة بي*
+**ئەمە لیستی فەرمانەکانی پاککردنەوەیه📋*
 
-‣ `تنظيف`
-بالرد على رسالة لحذف ما تحتها من الرسائل 
+/cleaning
+بە ریپله ی نامەیەک بۆ سڕینەوەی نامەکانی خوارەوەی🗑️
 
-‣ `مسح`
-بالرد على رسالة لحذفها
+/delet
+ریپله ی نامەیەک بکه بۆ سڕینەوەی🗑️
 
 """
 
-@R0R77.on(events.NewMessage(pattern=r"^[?!]تنظيف"))
+@R0R77.on(events.NewMessage(pattern=r"^[?!]cleaning"))
 @is_admin
 async def purge_messages(event, perm):
     if not perm.delete_messages:
-         await event.reply("تحتاج الى صلاحيات الحذف اولا")
+         await event.reply("سەرەتا پێویستت بە مۆڵەتی سڕینەوەیە❗")
          return
     start = time.perf_counter()
     reply_msg = await event.get_reply_message()
     if not reply_msg:
         await event.reply(
-            "يجب عليك الرد على الرسالة التي تريد حذف ما اسفلها")
+            "‼️پێویستە لە خوارەوە ریپله ی ئەو نامەیە بکه ی کە دەتەوێت بیسڕیتەوە")
         return
     messages = []
     message_id = reply_msg.id
@@ -39,20 +39,20 @@ async def purge_messages(event, perm):
 
     await event.client.delete_messages(event.chat_id, messages)
     time_ = time.perf_counter() - start
-    text = f"تم التنظيف في {time_:0.2f} من الثواني"
+    text = f"پاککراوەتەوە لە✅ {time_:0.2f} دوو سێ جرکه چاوه ریی که❤️"
     await event.respond(text, parse_mode='markdown')
 
 
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]مسح$"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]delet$"))
 @is_admin
 async def delete_messages(event, perm):
     if not perm.delete_messages:
-       await event.reply("- تحتاج الى صلاحيات الحذف اولا")
+       await event.reply("- سەرەتا پێویستت بە مۆڵەتی سڕینەوەیە❗")
        return
     msg = await event.get_reply_message()
     if not msg:
-      await event.reply("يجب عليك الرد على الرسالة المراد حذفها")
+      await event.reply("پێویستە لە خوارەوە ریپله ی ئەو نامەیە بکه ی کە دەتەوێت بیسڕیتەوە‼️")
       return
 
     await msg.delete()
@@ -60,4 +60,4 @@ async def delete_messages(event, perm):
 
 @R0R77.on(events.callbackquery.CallbackQuery(data="purges"))
 async def _(event):
-    await event.edit(PR_HELP, buttons=[[Button.inline("رجوع", data="help")]])
+    await event.edit(PR_HELP, buttons=[[Button.inline("گه رانه وه🔙", data="help")]])
