@@ -55,7 +55,7 @@ async def unpin(event, perm):
     chat_id = (str(event.chat_id)).replace("-100", "")
     ok = await R0R77.get_messages(event.chat_id, ids=types.InputMessagePinned())
     await R0R77.unpin_message(event.chat_id, ok)
-    await event.reply(f"دامەزراندنەکە بە سەرکەوتوویی هەڵوەشایەوە✅   [بۆ ئەم پەیامە](t.me/{event.chat.username}/{ok.id}).", link_preview=False)
+    await event.reply(f"دامەزراندنەکە بە سەرکەوتوویی هەڵوەشایەوە✅ [بۆ ئەم پەیامە](t.me/{event.chat.username}/{ok.id}).", link_preview=False)
 
 
 @R0R77.on(events.NewMessage(pattern="^[!?/]Uninstall for all$"))
