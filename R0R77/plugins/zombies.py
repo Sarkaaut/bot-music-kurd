@@ -7,12 +7,12 @@ from R0R77.status import *
 
 
 CLEANER_HELP = """
-**هذه هي اوامر عرض وحذف الحسابات المحذوفة**
-!المحذوفين
-لعرض الحسابات المحذوفة في الدردشة
+**🚷ئەمانە ئەو فرمانانەن بۆ بینین و سڕینەوەی ئەکاونتە سڕاوەکان**
+/omitted
+بۆ بینینی ئەکاونتە سڕاوەکان لە چاتدا🗑️
 
-!المحذوفين تنظيف
-لحذف و طرد الحسابات المحذوفة من لمجموعة
+/DeletedClean
+سرێنه وه و ده رکردنی ئاکاونته سراوه کانی گرووپ⚠️
 
 """
 
@@ -41,29 +41,29 @@ UNBAN_RIGHTS = ChatBannedRights(
 )
 
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]المحذوفين ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]omitted ?(.*)"))
 @is_admin
 async def clean(event, perm):
     if not perm.ban_users:
-      await event.reply("- ليست لديك صلاحيات كافية")
+      await event.reply("- تۆ دەسەڵاتی پێویستت نییە❗")
       return
     input_str = event.pattern_match.group(1)
-    stats = "المجموعة نظيفة"
+    stats = "گروپەکە پاک و خاوێنە✅"
     deleted = 0
 
     if "clean" not in input_str:
-      zombies = await event.respond("يتم البحث عن حسابات محذوفه او اخر ظهور لها قديم")
+      zombies = await event.respond("بەدوای ئەو ئەکاونتانەدا دەگەڕێت کە سڕاونەتەوە یان دوایین جار بینراون کە کۆنن👤")
       async for user in event.client.iter_participants(event.chat_id):
 
             if user.deleted:
                 deleted += 1
       if deleted > 0:
-            stats = f"تم ايجاد **{deleted}** من المحذوفين هنا\
-            \nلطردهم ارسل `/المحذوفين تنظييف`"
+            stats = f".دۆزرایەوە **{deleted}** لێرەدا سڕاوەتەوە\
+            \ بۆ دەرکردنیان بنێره `/ /DeletedClean`"
       await zombies.edit(stats)
       return
 
-    cleaning_zombies = await event.respond("- جار طرد الحسابات المحذوفة انتظر قليلا")
+    cleaning_zombies = await event.respond("- ئەکاونتە سڕاوەکان دەردەکرێن، خولەکێک چاوەڕێ بکە🔄")
     del_u = 0
     del_a = 0
 
@@ -74,7 +74,7 @@ async def clean(event, perm):
                     EditBannedRequest(event.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                await cleaning_zombies.edit("- عذرا ليس لدي صلاحيات الحظر هنا")
+                await cleaning_zombies.edit("- ببورن لێرە مۆڵەتم نییە بۆ بلۆککردن👤")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -83,14 +83,14 @@ async def clean(event, perm):
             del_u += 1
 
     if del_u > 0:
-        stats = f"تم تنظيف`{del_u}` من الحسابات المحذوفة"
+        stats = f"پاککراوەتەوە`{del_u}` لە ئەکاونتە سڕاوەکانەوە🚷"
 
     if del_a > 0:
-        stats = f"تم تنظيف`{del_u}` من الحسابات المحذوفة \
-        \n`{del_a}` من حسابات المشرفين المحذوفة لم يتم طردهم"
+        stats = f"پاککراوەتەوە`{del_u}` لە ئەکاونتە سڕاوەکانەوە \
+        \n`{del_a}` ئەکاونتە سڕاوەکانی ئەدمین دەرنەکراون👤"
 
     await cleaning_zombies.edit(stats)
 
 @R0R77.on(events.callbackquery.CallbackQuery(data="zombies"))
 async def _(event):
-    await event.edit(CLEANER_HELP, buttons=[[Button.inline("رجوع", data="help")]])
+    await event.edit(CLEANER_HELP, buttons=[[Button.inline("گه رانه وه🔙", data="help")]])
