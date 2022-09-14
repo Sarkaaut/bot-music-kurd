@@ -438,7 +438,7 @@ async def vc_playlist(event, perm):
 
 
 #كود المغادرة
-@R0R77.on(events.NewMessage(pattern="^[?!/]shuffle"))
+@R0R77.on(events.NewMessage(pattern="^[?!/]stop"))
 @is_admin
 async def leavevc(event, perm):
     razan = await event.reply("- تکایە کەمێک چاوەڕێ بکە🔄")
@@ -484,7 +484,7 @@ async def vc_skip(event, perm):
             await event.reply(DELQUE)
 
 
-@R0R77.on(events.NewMessage(pattern="^[?!/]stop"))
+@R0R77.on(events.NewMessage(pattern="^[?!/]shuffle"))
 @is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
