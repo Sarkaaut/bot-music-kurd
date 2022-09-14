@@ -9,6 +9,6 @@ class Config(object):
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "JMTHON_ROBOT")
     SUPPORT = os.environ.get("SUPPORT", "JMTHON_SUPPORT")
     CHANNEL = os.environ.get("CHANNEL", "JMTHON")
-    START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/2ad68bd0e391a69163d0a.jpg")
-    CMD_IMG = os.environ.get("CMD_IMG", "https://telegra.ph/file/66518ed54301654f0b126.png")
+    START_IMG = os.environ.get("START_IMG", "https://telegra.ph/file/9e8cb8fcee7549cc063aa.jpg")
+    CMD_IMG = os.environ.get("CMD_IMG", "https://telegra.ph/file/57940a2cd0d617ff9e44a.jpg")
 
