@@ -55,7 +55,7 @@ async def broadcast(c: R0R77, message: Message):
 
 @R0R77_message(command(["ذت", f"اذت"]) & ~filters.edited)
 @sudo_users_only
-async def broadcast_pin(c: Client, message: Message):
+async def broadcast_pin(c: R0R77, message: Message):
     if not message.reply_to_message:
         pass
     else:
