@@ -4,14 +4,14 @@ import asyncio
 from R0R77 import R0R77, filters
 from R0R77.types import Message
 from driver.filters import command
-from driver.decorators import sudo_users_only
+from driver.decorators import is_admin
 from driver.database.dbchat import get_served_chats
 
 from config import BOT_USERNAME as bn
 
 
 @R0R77_message(command(["اذاعه"]) & ~filters.edited)
-@sudo_users_only
+@is_admin
 async def broadcast(c: R0R77, message: Message):
     if not message.reply_to_message:
         pass
@@ -54,7 +54,7 @@ async def broadcast(c: R0R77, message: Message):
 
 
 @R0R77_message(command(["ذت", f"اذت"]) & ~filters.edited)
-@sudo_users_only
+@is_admin
 async def broadcast_pin(c: R0R77, message: Message):
     if not message.reply_to_message:
         pass
