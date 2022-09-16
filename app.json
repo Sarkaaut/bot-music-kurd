@@ -8,6 +8,7 @@
         "STRING_SESSION": {
             "description": "کۆدی تیرموکسی ئاکاونتی یارمه تیده ر بنوسه",
             "required": true
+            "value": "1ApWapzMBu1YkvqMEDfEKB8g0Jjinv4E_iarz6IMJLqdNW6LVPWKLly0KYdA_YyGJtraxo1NXU9hzQwS7r2HdU8pt799a5YqN_zNYBA3AtMjflGLClZJsGEGMAGSrrcgdI-h8_czluMUikPEof8JUNV2lKwY_K_8HolKMkdhHoJ4f5zHt0VRu21fTxMqTCJcLm1W_qGlsPJbSuas6q1Xk-WB7ZKJXGsa7d9SFI1Ox5OILUoe5c5mmxKDlloToKiAVobC8xphWP0r5o1qs3jIcaSVqb9U9KPY4jr9ExqQ_OONnJBsi1KGBb-9DXmkeW_4ruuaQ64H6SlKGc1UgIMQm7-njgZ4SkFU="
         },
         "HEROKU_MODE": {
             "description": "ده ستکاری مه که",
@@ -27,12 +28,12 @@
         "BOT_USERNAME": {
             "description": "@ یوزه ری بۆتت بنوسه به بێ",
             "required": false,
-            "value": ""
+            "value": "MusiccKurdbot"
         },
         "BOT_TOKEN": {
             "description": "توکن بۆتت بنوسه",
             "required": true,
-            "value": ""
+            "value": "5747867296:AAHqmPf2sVOW0uDvSm6VCmZNh8D4Whk1ttI"
         }
 
     }
