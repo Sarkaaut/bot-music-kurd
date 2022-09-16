@@ -1,7 +1,7 @@
 """ broadcast & statistic collector """
 
 import asyncio
-from R0R77 import Client, filters
+from R0R77 import R0R77, filters
 from R0R77.types import Message
 from driver.filters import command
 from driver.decorators import sudo_users_only
@@ -12,7 +12,7 @@ from config import BOT_USERNAME as bn
 
 @R0R77_message(command(["اذاعه"]) & ~filters.edited)
 @sudo_users_only
-async def broadcast(c: Client, message: Message):
+async def broadcast(c: R0R77, message: Message):
     if not message.reply_to_message:
         pass
     else:
