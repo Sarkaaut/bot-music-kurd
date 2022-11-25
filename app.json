@@ -17,12 +17,12 @@
         "SUPPORT": {
             "description": "@ لینکی گرووپت بنوسه به بێ ",
             "required": false,
-            "value": "Grup_Shetakann"
+            "value": ""
         },
         "CHANNEL": {
             "description": "@ لینکی که ناڵت بنوسه به بێ",
             "required": false,
-            "value": "Trpay_dllm"
+            "value": ""
         },
         "BOT_USERNAME": {
             "description": "@ یوزه ری بۆتت بنوسه به بێ",
@@ -32,7 +32,7 @@
         "BOT_TOKEN": {
             "description": "توکن بۆتت بنوسه",
             "required": true,
-            "value": "5747867296:AAHqmPf2sVOW0uDvSm6VCmZNh8D4Whk1ttI"
+            "value": ""
         }
 
     }
