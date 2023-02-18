@@ -23,7 +23,7 @@ async def start(event):
              buttons=[
         [Button.url("➕ بۆ ئادم کلیک لێرە بکە", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
         [Button.url("خاوه ن بۆت", "https://t.me/SARKAUT")],
-        [Button.url("پشتگیری", f"https://t.me/{Config.SUPPORT}"), Button.url("که ناڵ", f"https://t.me/{Config.CHANNEL}")],
+        [Button.url("پشگیری", f"https://t.me/{Config.SUPPORT}"), Button.url("که ناڵ", f"https://t.me/{Config.CHANNEL}")],
         [Button.inline("فه رمانه کان", data="help")]])
        return
 
