@@ -58,6 +58,6 @@ async def delete_messages(event, perm):
     await msg.delete()
     await event.delete()
 
-@R0R77.on(events.callbackquery.CallbackQuery(data="purges"))
+@R0R77.on(events.callbackquery.CallbackQuery(data="پاککردنەوە"))
 async def _(event):
     await event.edit(PR_HELP, buttons=[[Button.inline("گه رانه وه🔙", data="help")]])
