@@ -14,7 +14,7 @@ PR_HELP = """
 
 """
 
-@R0R77.on(events.NewMessage(pattern=r"^[?!]cleaning"))
+@R0R77.on(events.NewMessage(pattern=r"^[?!/]cleaning"))
 @is_admin
 async def purge_messages(event, perm):
     if not perm.delete_messages:
