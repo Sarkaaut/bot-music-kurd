@@ -77,7 +77,7 @@ async def promote(event, perm):
     await event.reply(f"- بە سەرکەوتوویی دابەزێنراوە ✅ {input_str} in {event.chat.title}")
  
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]الرابط"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]link"))
 async def invitelink(event):
 
     if event.is_private:
