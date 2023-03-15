@@ -17,7 +17,7 @@
         "SUPPORT": {
             "description": "@ لینکی گرووپت بنوسه به بێ ",
             "required": false,
-            "value": ""
+            "value": "Gruop_Shetakan"
         },
         "CHANNEL": {
             "description": "@ لینکی که ناڵت بنوسه به بێ",
@@ -32,7 +32,7 @@
         "BOT_TOKEN": {
             "description": "توکن بۆتت بنوسه",
             "required": true,
-            "value": ""
+            "value": "5999410466:AAGD4jOlTyO0BLey1if4EE-U8c3gpY6wiVQ"
         }
 
     }
