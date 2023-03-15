@@ -21,7 +21,7 @@ async def start(event):
              Config.START_IMG,
              caption=PM_START_TEXT.format(event.sender.first_name), 
              buttons=[
-        [Button.url("➕ بۆ ئادم کلیک لێرە بکە", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+        [Button.url("➕ بۆ ئادم کلیک لێرە بکە ➕", f"https://t.me/{BOT_USERNAME}?startgroup=true")],
         [Button.url("خاوه ن بۆت", "https://t.me/SARKAUT")],
         [Button.url("پشگیری", f"https://t.me/{Config.SUPPORT}"), Button.url("که ناڵ", f"https://t.me/{Config.CHANNEL}")],
         [Button.inline("فه رمانه کان", data="help")]])
