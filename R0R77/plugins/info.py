@@ -41,13 +41,13 @@ async def info(event):
 
     sed = await R0R77(P(user_id=event.sender_id, offset=42, max_id=0, limit=80))
     hn = await R0R77(GetFullUserRequest(event.sender_id))
-    text = "**زانیاری بەکارهێنەر:**\n\n"
-    text += "**ناوی یه که م:** {}\n"
-    text += "**ناوی دووم:** {}\n"
-    text += "**ئایدی:** `{}`\n"
-    text += "**ناسنامه:** @{}\n"
-    text += "**ژماره ی وێنه :** `{}`\n"
-    text += "**بایو:** `{}`\n"
+    text = "**زانیاری بەکارهێنەر 📜⏐↫**\n\n"
+    text += "**ناوی یه که م 🗒️⏐↫** {}\n"
+    text += "**ناوی دووم 🪪⏐↫** {}\n"
+    text += "**ئایدی 🆔⏐↫** `{}`\n"
+    text += "**ناسنامه 🎫⏐↫** @{}\n"
+    text += "**ژماره ی وێنه 📸⏐↫** `{}`\n"
+    text += "**بایو 💎⏐↫** `{}`\n"
     text += "**لینکی ئەکاونتەکەی :** [کلیک ئێره بکه](tg://user?id={})\n"
 
     input_str = event.pattern_match.group(1)
@@ -60,13 +60,13 @@ async def info(event):
     hu = await R0R77(GetFullUserRequest(id=input_str))
     sedd = await R0R77(P(user_id=input_str, offset=42, max_id=0, limit=80))
 
-    textn = "** زانیاری بەکارهێنەر:**\n\n"
-    textn += "** ناوی یه که م:** {}\n"
-    textn += "** ناوی دووم:** {}\n"
-    textn += "**ئایدی:** `{}`\n"
-    textn += "**ناسنامه:** @{}\n"
-    textn += "** ژماره ی وێنه:** `{}`\n"
-    textn += "**بایو:** `{}`\n"
+    textn = "** زانیاری بەکارهێنەر 📜⏐↫**\n\n"
+    textn += "** ناوی یه که م 🗒️⏐↫** {}\n"
+    textn += "** ناوی دووم 🪪⏐↫** {}\n"
+    textn += "**ئایدی 🆔⏐↫** `{}`\n"
+    textn += "**ناسنامه 🎫 ⏐↫** @{}\n"
+    textn += "** ژماره ی وێنه 📸⏐↫** `{}`\n"
+    textn += "**بایو 💎⏐↫** `{}`\n"
     textn += "** لینکی ئەکاونتەکەی:** [کلیک ئێره بکه](tg://user?id={})\n"
 
     await event.reply(textn.format(ha.first_name, ha.last_name, ha.id, ha.username, sedd.count, hu.about, ha.id))
