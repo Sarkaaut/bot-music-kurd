@@ -11,7 +11,7 @@ from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
 from pytgcalls.exceptions import (
-    NoActiveGroupCall,
+   هیچ پەیوەندییەکی گروپی چالاک نییە,
     NotInGroupCallError
 )
 from R0R77.status import *
