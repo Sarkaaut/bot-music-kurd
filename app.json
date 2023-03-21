@@ -22,7 +22,7 @@
         "CHANNEL": {
             "description": "@ لینکی که ناڵت بنوسه به بێ",
             "required": false,
-            "value": "BotMusicKurdi"
+            "value": ""
         },
         "BOT_USERNAME": {
             "description": "@ یوزه ری بۆتت بنوسه به بێ",
