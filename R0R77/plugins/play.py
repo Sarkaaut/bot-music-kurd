@@ -147,7 +147,7 @@ async def play(event):
         or not replied
         and not title
     ):
-        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**دەبێت ناونیشانی ئەو شتە بنووسیت کە دەتەوێت جێبەجێی بکەیت✏️**\n\n **نموونە**: `!play سورة الكهف`", buttons=btnn)
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**دەبێت ناونیشانی ئەو شتە بنووسیت کە دەتەوێت جێبەجێی بکەیت✏️**\n\n **نموونە**: `!play سورة البقرة`", buttons=btnn)
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("داتاکان دەناسرێنەوە چاوەڕوان بە 🔍")
         query = event.text.split(maxsplit=1)[1]
