@@ -6,23 +6,23 @@ from R0R77 import *
 
 
 PINS_TEXT = """
-**فەرمانەکانی دامەزراندن و لابردنی نامەکان لە گروپەکەدا🔰**
+**فەرمانەکانی پین کردن و لابردنی نامەکان لە گروپەکەدا🔰**
 
-/Installations
+/pin
 ریپله ی ئەو نامەیە بکه کە دەتەوێت دایبمەزرێنیت🖇️
 
-/uninstall
+/unpin
 ریپله ی ئەو نامانەی کە دەتەوێت پینیان لێ بکەیتەوە📨
 
-/Uninstallforall
+/unpinall
 بۆ لابردنی هەموو نامە پین کراوه کانی ناو گروپەکە📭
 
-/Pinned
+/pinned
 بۆ پیشاندانی نامە پین کراوەکان لە گروپەکەدا📮
 
 """
 
-@R0R77.on(events.NewMessage(pattern="^[?!/]Pinned"))
+@R0R77.on(events.NewMessage(pattern="^[?!/]pinned"))
 async def get_pinned(event):
     chat_id = (str(event.chat_id)).replace("-100", "")
 
@@ -30,7 +30,7 @@ async def get_pinned(event):
     tem = f"نامەی پینکراو لە چاتدا{event.chat.title} ئه و <a href=https://t.me/c/{chat_id}/{Ok.id}>here</a>."
     await event.reply(tem, parse_mode="html", link_preview=False)
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]Installations ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]pin?(.*)"))
 @is_admin
 async def pin(event, perm):
     if not perm.pin_messages:
@@ -46,7 +46,7 @@ async def pin(event, perm):
        return
     await R0R77.pin_message(event.chat_id, msg)   
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]uninstall ?(.*)"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]unpin?(.*)"))
 @is_admin
 async def unpin(event, perm):
     if not perm.pin_messages:
@@ -58,13 +58,13 @@ async def unpin(event, perm):
     await event.reply(f"دامەزراندنەکە بە سەرکەوتوویی هەڵوەشایەوە✅ [بۆ ئەم پەیامە](t.me/{event.chat.username}/{ok.id}).", link_preview=False)
 
 
-@R0R77.on(events.NewMessage(pattern="^[!?/]Uninstallforall$"))
+@R0R77.on(events.NewMessage(pattern="^[!?/]unpinall$"))
 async def unpinall(event, perm):
     if not perm.pin_messages:
        await event.reply("پێویستە سەرەتا مۆڵەتی دامەزراندنت هەبێت🔰")
        return
     UNPINALL = """
-ئایا دڵنیای کە نامەکان هەڵدەگریت؟
+ئایا دڵنیای کە نامەکان پین دە کە یت؟
 """
 
     await R0R77.send_message(event.chat_id, UNPINALL, buttons=[
