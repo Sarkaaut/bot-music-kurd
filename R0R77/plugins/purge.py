@@ -13,7 +13,6 @@ PR_HELP = """
 ریپله ی نامەیەک بکه بۆ سڕینەوەی🗑️
 
 """
-
 @R0R77.on(events.NewMessage(pattern=r"^[?!/]cleaning"))
 @is_admin
 async def purge_messages(event, perm):
