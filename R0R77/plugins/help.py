@@ -3,7 +3,7 @@ from R0R77 import R0R77, BOT_USERNAME
 
 btn =[
     [Button.inline("بەڕێوەبەر 👥", data="admin"),],
-    [Button.inline("دامەزراندن 📝", data="pins"), Button.inline("⚠️ پاکردنەوە", data="purges")],
+    [Button.inline("پین کردن📌", data="pins"), Button.inline("⚠️ پاکردنەوە", data="purges")],
     [Button.inline("ئیش پی کردن ♻️", data="play"), Button.inline("🚷 سراوه کان", data="zombies")],
     [Button.inline("قوفڵ 🔒", data="locks"), Button.inline("🔍 زیاتر", data="misc")],
     [Button.inline("↩️ سەرەکی", data="start")]]
