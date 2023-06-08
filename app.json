@@ -17,22 +17,22 @@
         "SUPPORT": {
             "description": "@ لینکی گرووپت بنوسه به بێ ",
             "required": false,
-            "value": "Gruop_Shetakan"
+            "value": "ChanallBots"
         },
         "CHANNEL": {
             "description": "@ لینکی که ناڵت بنوسه به بێ",
             "required": false,
-            "value": ""
+            "value": "Gruop_Shetakan"
         },
         "BOT_USERNAME": {
             "description": "@ یوزه ری بۆتت بنوسه به بێ",
             "required": false,
-            "value": "MusiccKurdbot"
+            "value": "MusicShetakanBot"
         },
         "BOT_TOKEN": {
             "description": "توکن بۆتت بنوسه",
             "required": true,
-            "value": "5999410466:AAGD4jOlTyO0BLey1if4EE-U8c3gpY6wiVQ"
+            "value": "6270777972:AAFVDZldGA7usDV9R5eDYfCQVYjzGSnFIjo"
         }
 
     }
