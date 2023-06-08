@@ -125,8 +125,8 @@ async def _(event):
      await event.delete()
 
 btnn =[
-    [Button.url("پشتگیری", url=f"t.me/{Config.SUPPORT}"), Button.url("که ناڵ", url=f"t.me/{Config.CHANNEL}")],
-    [Button.inline("داخستن", data="cls")]]
+    [Button.url("• Stop •", data="stop"), Button.url("• Skip •", data="skip")],
+    [Button.inline("", data="cls")]]
 
 
 #play
