@@ -17,12 +17,12 @@
         "SUPPORT": {
             "description": "@ لینکی گرووپت بنوسه به بێ ",
             "required": false,
-            "value": "ChanallBots"
+            "value": "Gruop_Shetakan"
         },
         "CHANNEL": {
             "description": "@ لینکی که ناڵت بنوسه به بێ",
             "required": false,
-            "value": "Gruop_Shetakan"
+            "value": "ChanallBots"
         },
         "BOT_USERNAME": {
             "description": "@ یوزه ری بۆتت بنوسه به بێ",
